@@ -152,7 +152,7 @@ are raised or not)
                 ui.fatal(e)
             raise e
         # match_obj[0] is the intent: 0 = OBS, 1 = Agent Dead, 2 = Match End
-        if match_obj[0] is 0:
+        if match_obj[0] == 0:
             action = agent.act(match_obj[1], gym.spaces.Discrete(6))
             try:
                 network.send_move(action, match_obj[2])
@@ -160,7 +160,7 @@ are raised or not)
                 if ui_en:
                     ui.fatal(e)
                 raise e
-        elif match_obj[0] is 2:
+        elif match_obj[0] == 2:
             agent.episode_end(reward=match_obj[1])
             if ui_en:
                 if match_obj[1] == 1:

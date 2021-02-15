@@ -33,7 +33,7 @@ def main():
         done = False
         while not done:
             # This renders the game
-            env.render()
+            # env.render(do_sleep=False)
 
             # This is where we give an action to the environment
             actions = env.act(state)
